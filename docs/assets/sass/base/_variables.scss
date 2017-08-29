@@ -1,0 +1,58 @@
+%bg{
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-size: cover;
+
+}
+%uppercuse{
+	text-transform: uppercase;
+}
+$gray:#7c7c7c;
+$blue:#00bcd4;
+$bluelight:#a6e8f0;
+$bage:RGB(248, 248 , 248);
+$white:#fff;
+
+$time: 0.3s;
+
+$reserve_fonts:"Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$GothamProRegular:"GothamProRegular",$reserve_fonts;
+
+
+%flex-sp-bt{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap:wrap;
+}
+%space-around{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+}
+.graytext{
+	font-family: $GothamProRegular;
+	font-size: 14px;
+	color:$gray;
+	line-height: 20px;
+}
+%flex-center{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.cirсle{
+	border:1px solid $gray;
+	border-radius: 100%;
+	padding: 8px;
+}
+.ital{
+	font-family: "GothamProItalic"; 
+}
+.clearboth{
+	clear:both;
+}
+.border{
+	border:2px solid $bluelight;
+	padding: 7px 10px;
+	box-sizing:content-box;
+}

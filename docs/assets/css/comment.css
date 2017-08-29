@@ -1,0 +1,49 @@
+.comment-box {
+  margin-bottom: 20px; }
+  .comment-box a {
+    color: #00bcd4;
+    font-size: 14px;
+    font-family: "GothamProRegular"; }
+
+.comment {
+  font-size: 14px;
+  color: #005096;
+  text-align: left;
+  background-color: #fff;
+  padding: 5px 7px;
+  border: 1px solid black;
+  border-bottom: none;
+  box-sizing: border-box; }
+  .comment p {
+    color: #005096; }
+  .comment .title {
+    font-family: "GothamProBold";
+    color: #005096;
+    font-size: 14px; }
+  .comment img {
+    border-radius: 100%; }
+  .comment__item {
+    color: #7c7c7c; }
+    .comment__item i:nth-child(-n+3) {
+      color: #00bcd4; }
+    .comment__item date {
+      margin-left: 35%; }
+
+.user {
+  background-color: #005096;
+  /*	height: 80px;*/
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  color: white;
+  border: 3px solid #005096;
+  text-align: left; }
+  .user p {
+    line-height: 4px;
+    color: #fff; }
+  .user__name {
+    margin-top: 4px; }
+  .user img {
+    float: left;
+    margin-right: 20px;
+    margin-left: 10px; }

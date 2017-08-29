@@ -1,0 +1,66 @@
+.comment-box{
+	margin-bottom: 20px;
+	a{
+		color:#00bcd4;
+		font-size: 14px;
+		font-family: "GothamProRegular";
+	}	
+}
+.text-hid{margin:0;}
+.hidden-lg{display: none}
+.comment{
+	font-size: 14px;
+	color: #005096;
+	text-align: left;
+	background-color: #fff;
+	padding: 5px 7px;
+	border: 1px solid black;
+	border-bottom: none;
+	box-sizing:border-box;
+	&-hidden{
+		display: none;
+		@media (max-width: 940px){
+		display: block;
+		}
+	}
+	p{color: #005096;}
+	.title{
+		font-family: "GothamProBold";
+		color: #005096;
+		font-size: 14px;
+	}
+	img{
+		border-radius: 100%;
+	}
+	&__item{
+		color: #7c7c7c;
+		i:nth-child(-n+3){
+		color:#00bcd4;
+		}
+		date{
+			margin-left: 35%;
+		}
+	}
+}
+.user{
+		background-color: #005096;
+	/*	height: 80px;*/
+		width: 100%;
+		padding: 5px;
+		box-sizing:border-box;
+		color: white;
+		border: 3px solid #005096;
+		text-align: left;
+		p{
+			line-height: 4px;
+			color: #fff;
+		}
+		&__name{
+			margin-top: 4px;
+		}
+		img{
+			float: left;
+			margin-right: 20px;
+			margin-left:  10px;
+		}
+	}
