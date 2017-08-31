@@ -239,7 +239,8 @@ h5 {
   z-index: 3; }
   @media (max-width: 599px) {
     .logo {
-      display: none; } }
+      left: 4%;
+      top: 4%; } }
 
 header {
   padding: 2%; }
@@ -266,6 +267,9 @@ header {
   height: 600px;
   max-height: 100%;
   position: relative; }
+  @media (max-width: 599px) {
+    .top {
+      height: 700px; } }
   .top__banner {
     background-color: rgba(0, 89, 145, 0.4);
     border: 1px solid #fff;
@@ -274,6 +278,9 @@ header {
     top: 10%;
     text-shadow: 1px 1px 1px black;
     text-align: center; }
+    @media (max-width: 599px) {
+      .top__banner {
+        margin: 110px 0; } }
     .top__banner p {
       font-size: 19px;
       color: #fff;
@@ -291,7 +298,8 @@ header {
         width: 90%;
         height: 40px; } }
     .top__banner input {
-      width: 280px;
+      width: 270px;
+      margin: 0 7px;
       padding: 10px;
       padding-left: 35px;
       border-radius: 3px;
@@ -374,13 +382,11 @@ header {
     color: #fff; }
   .rewiew__box--sm {
     width: 49%;
-    /*height: 190px;*/
     max-width: 100%;
     max-height: 100%;
-    background-color: red;
     box-sizing: border-box;
     padding: 2%; }
-    @media (max-width: 940px) {
+    @media (max-width: 599px) {
       .rewiew__box--sm {
         width: 100%;
         height: 280px;
@@ -401,7 +407,7 @@ header {
 
 @media (max-width: 940px) {
   .box-b {
-    flex-flow: column wrap; } }
+    flex-flow: row wrap; } }
 
 .rewiew {
   justify-content: center;
@@ -525,7 +531,7 @@ header {
       height: 300px; } }
   @media (max-width: 599px) {
     .list__item {
-      width: 90%;
+      width: 100%;
       margin: 0; } }
   @media (max-width: 599px) {
     .list__item h5 {
