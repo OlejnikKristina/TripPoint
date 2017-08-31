@@ -61,9 +61,7 @@ header{
 		position: absolute;
 		top:10%;
 		text-shadow: 1px 1px 1px black;
-		text-align: center;
-		@include for-phone-only{padding: 0 50px;}
-		
+		text-align: center;		
 		p{
 			font:{
 				size:19px;
@@ -232,10 +230,10 @@ header{
 	}
 	.comments{
 		width: 30%;
+		@include for-phone-only{margin-left: 0;}
 		@include for-big-desktop{width: 37%;}
 		@include tablet{width: 100%;
-			justify-content:center;
-			}
+			justify-content:center;}
 		margin-left: 3%;
 		display: flex;
 		flex-flow:row wrap;
@@ -271,7 +269,7 @@ header{
 		}
 .more{
 	width: 100%;
-	@include tablet{width: 400px;margin-bottom: 40px;}
+	@include tablet{margin-bottom: 40px;}
 	margin-top: 40px;
 	display: flex;
 	justify-content:flex-start;
@@ -342,13 +340,9 @@ header{
 		@include for-phone-only{
 		width: 90%;
 		margin: 0;
-		height: 310px;
 		}
-		h5{@include for-phone-only{margin-top: 0;}}
+		h5{@include for-phone-only{margin-top: 0;display: block!important;}}
 	}
-	.news-wrap:not(:only-child){
-			display: none;
-		}
 	&__item:not(:last-child){
 		margin-right: 25px;
 		@include for-phone-only{
@@ -375,9 +369,15 @@ header{
 }
 .news__item{
 	padding-top: 8%;
+	.news-wrap{
+				h5{
+					display: block!important;
+				}
+				display: block!important;
+			}
+		}
 	@include for-tablet-portait-only{
 		padding-top:0;
-		}
 }
 .foot{
 	display: flex;
@@ -434,9 +434,10 @@ header{
 	padding: 30px 60px;
 	@include for-phone-only{
 		flex-direction:column;
+		padding: 30px 20px;
 	}
 	@include tablet{
-		padding: 30px 20px;
+		padding: 30px 10px;
 	}
 }
 .social{
@@ -446,9 +447,12 @@ header{
 		&:hover, &:visited{
 		color: $gray;
 		}
+		@include for-phone-only{
+		margin: 20px 7px;
+		}
 	}
 	@include for-phone-only{
-		margin: 30px 0;
+		margin: 15px 0;
 	}
 	
 }

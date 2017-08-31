@@ -205,10 +205,12 @@ h5 {
       color: #00bcd4; }
     .comment__item date {
       margin-left: 35%; }
+      @media (max-width: 599px) {
+        .comment__item date {
+          margin-left: 40px; } }
 
 .user {
   background-color: #005096;
-  /*	height: 80px;*/
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
@@ -272,9 +274,6 @@ header {
     top: 10%;
     text-shadow: 1px 1px 1px black;
     text-align: center; }
-    @media (max-width: 599px) {
-      .top__banner {
-        padding: 0 50px; } }
     .top__banner p {
       font-size: 19px;
       color: #fff;
@@ -422,6 +421,9 @@ header {
     display: flex;
     flex-flow: row wrap;
     align-content: space-between; }
+    @media (max-width: 599px) {
+      .rewiew .comments {
+        margin-left: 0; } }
     @media (max-width: 1400px) {
       .rewiew .comments {
         width: 37%; } }
@@ -461,7 +463,6 @@ header {
   justify-content: flex-start; }
   @media (max-width: 940px) {
     .more {
-      width: 400px;
       margin-bottom: 40px; } }
   .more__lb {
     color: #7c7c7c;
@@ -525,14 +526,11 @@ header {
   @media (max-width: 599px) {
     .list__item {
       width: 90%;
-      margin: 0;
-      height: 310px; } }
+      margin: 0; } }
   @media (max-width: 599px) {
     .list__item h5 {
-      margin-top: 0; } }
-
-.list .news-wrap:not(:only-child) {
-  display: none; }
+      margin-top: 0;
+      display: block !important; } }
 
 .list__item:not(:last-child) {
   margin-right: 25px; }
@@ -556,9 +554,13 @@ header {
 
 .news__item {
   padding-top: 8%; }
-  @media (min-width: 600px) and (max-width: 899px) {
-    .news__item {
-      padding-top: 0; } }
+  .news__item .news-wrap {
+    display: block !important; }
+    .news__item .news-wrap h5 {
+      display: block !important; }
+
+@media (min-width: 600px) and (max-width: 899px) {
+  padding-top: 0; }
 
 .foot {
   display: flex;
@@ -607,17 +609,21 @@ header {
   padding: 30px 60px; }
   @media (max-width: 599px) {
     .more-foot {
-      flex-direction: column; } }
+      flex-direction: column;
+      padding: 30px 20px; } }
   @media (max-width: 940px) {
     .more-foot {
-      padding: 30px 20px; } }
+      padding: 30px 10px; } }
 
 .social i {
   color: #c4c4c4;
   margin-left: 30px; }
   .social i:hover, .social i:visited {
     color: #7c7c7c; }
+  @media (max-width: 599px) {
+    .social i {
+      margin: 20px 7px; } }
 
 @media (max-width: 599px) {
   .social {
-    margin: 30px 0; } }
+    margin: 15px 0; } }
