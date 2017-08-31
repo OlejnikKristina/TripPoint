@@ -1,0 +1,106 @@
+@mixin border($color, $width: 1px, $radius: 0){
+	border:{
+		color: $color;
+		width: $width;
+		radius: $radius;
+		style: solid;
+	}
+}
+
+//-------------media-mixin------------------
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin tablet {
+  @media (max-width: 940px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (max-width: 1200px) { @content; }
+}
+
+@mixin for-big-desktop {
+  @media (max-width: 1400px) { @content; }
+}
+
+@mixin for-tablet-portait-only {
+  @media (min-width: 600px) and (max-width: 899px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (max-width: 600px) { @content; }
+}
+
+//-------------font face--------------------
+@mixin font-face($font-name, $file-name) {
+	@font-face {
+		font-family: quote($font-name);
+		src: url('assets/fonts/'+ $file-name + '.eot');
+		src: url('assets/fonts/'+ $file-name + '.eot?#iefix')  format('embedded-opentype'),
+					 url('assets/fonts/'+ $file-name + '.woff') format('woff'),
+					 url('assets/fonts/'+ $file-name + '.ttf')  format('truetype');
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+//-------------input placeholder---------------------
+@mixin placeholder($color, $font, $size: 14px){
+	&::-webkit-input-placeholder { color:$color; font-family:$font; font-size: $size}
+	&::-moz-placeholder { color:$color; font-family:$font; font-size: $size}
+	&:-ms-input-placeholder { color:$color; font-family:$font; font-size: $size}
+	&:-moz-placeholder { color:$color; font-family:$font; font-size: $size}
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {@content}
+	&:-moz-placeholder           {@content}
+	&::-moz-placeholder          {@content}
+	&:-ms-input-placeholder      {@content}
+}
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+//------------------------------------------------------------------------------
+//  SVG background images with PNG and retina fallback
+//
+//	This mixin depends on Modernizr and creates a bit more work for you when creating
+//	images for your site, but it’s really worth it in the end.
+//------------------------------------------------------------------------------
+//	All in all you need this:
+//	pattern.svg
+//	pattern.png
+//	pattern@2x.png
+//------------------------------------------------------------------------------
+//  Url: https://webdesign.tutsplus.com/tutorials/a-simple-responsive-grid-made-even-better-with-sass--cms-21540
+//------------------------------------------------------------------------------
+
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+	background-image: url(#{$image-path}/#{$name}.svg);
+	@if($size){
+		background-size: $size;
+	}
+	.no-svg &{
+		background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+		@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+			background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+		}
+	}
+}

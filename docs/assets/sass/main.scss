@@ -3,6 +3,7 @@
 @import "base/_variables";
 @import "base/_setting";
 @import "comment";
+@import "base/mymixins";
 
 
 .sec{
@@ -16,15 +17,19 @@
 	position: absolute;
 	left:10%; 
 	z-index: 3;
+	@include for-phone-only {
+		display: none;
+	}
 }
 header{
 	padding: 2%;
+	@include tablet {padding:0;}
 }
 .menu{
 	width: 50%;
 	float: right;
 	padding-right: 20px;
-	@media (max-width: 500px){
+	@include for-phone-only {
 		display: none;
 	}	
 	ul{
@@ -48,7 +53,6 @@ header{
 	height: 600px;
 	max-height: 100%;
 	position: relative;
-
 	@extend %flex-center;
 	&__banner{
 		background-color: rgba(0, 89 , 145, .4);
@@ -58,6 +62,7 @@ header{
 		top:10%;
 		text-shadow: 1px 1px 1px black;
 		text-align: center;
+		@include for-phone-only{padding: 0 50px;}
 		
 		p{
 			font:{
@@ -68,9 +73,16 @@ header{
 			@media (max-width: 900px){line-height: 25px;}
 		}
 		form{
-			@media (max-width: 500px){
+			@include for-phone-only{
 				display: flex;
 				flex-flow:column wrap;
+				align-items: center
+			}
+			button {
+					@include for-phone-only{
+					width: 90%;
+					height: 40px;
+				}
 			}
 		}
 		input{
@@ -84,6 +96,12 @@ header{
 			background-size: 23px;
 			background-position: 2%;
 			box-sizing:border-box;
+			@include for-phone-only{
+				width: 90%;
+				text-align: center;
+				margin:5px 0;
+				height: 40px;
+			}
 		}
 		.search{
 			@extend .search;
@@ -101,7 +119,7 @@ header{
 		background-color: rgba(255, 255 , 255, .7);
 		box-sizing:border-box;
 		@extend %space-around;
-		@media (max-width: 500px){display: none;}
+		@include for-phone-only{display: none;}
 		.title{
 			color:$gray;
 			font-size: 18px;
@@ -150,7 +168,7 @@ header{
 		}
 	&__box{
 	color: #fff;
-	font:14px "GothamProRegular";
+	font:14px $GothamProRegular;
 	padding: 6%;
 	@extend %bg;
 	border-radius:10px;
@@ -158,20 +176,17 @@ header{
 	 h3{display: inline;}
 	p{text-transform: uppercase;
 		color: #fff;}
-	.comment-hidden{display: none;}
 		&--sm{
 			width: 49%;
-			height: 190px;
+			/*height: 190px;*/
 			max-width: 100%;
 			max-height: 100%;
-			@media (max-width: 940px){
+			@include tablet{
 				width: 100%;
 				height: 280px;
 				margin-bottom:20px;
-				.comment-hidden{display: block;}
 			}
 			background-color: red;
-			
 			box-sizing:border-box;
 			padding: 2%;
 			.starts{
@@ -207,29 +222,29 @@ header{
 	justify-content:center;
 	flex-wrap: nowrap;
 	display: flex;
-	@media (max-width:700px){
+	@include tablet{
 		flex-flow:column wrap;
 	}
 	
 	.box{
-		width: 50%;
-		@media (max-width:700px){
-		width: 100%;
-		}
+		width: 60%;
+		@include tablet{width: 100%;}
 	}
 	.comments{
-		width: 420px;
-		width: 37%;
+		width: 30%;
+		@include for-big-desktop{width: 37%;}
+		@include tablet{width: 100%;
+			justify-content:center;
+			}
 		margin-left: 3%;
 		display: flex;
 		flex-flow:row wrap;
 		align-content:space-between;
-		@media (max-width:700px){
-		width: 100%;
-		}
-		@media (max-width: 500px){
-		&:not(:first-child){display: none;}
-		}
+		.comment-box{
+			&:not(:first-child){
+					@include tablet{display: none;}
+				}
+			}
 	}
 }
 .button{
@@ -256,6 +271,7 @@ header{
 		}
 .more{
 	width: 100%;
+	@include tablet{width: 400px;margin-bottom: 40px;}
 	margin-top: 40px;
 	display: flex;
 	justify-content:flex-start;
@@ -270,35 +286,34 @@ header{
 	.row{
 		display: flex;
 		justify-content: center;
-		@media (max-width:700px){
+		@include tablet{
 		flex-wrap:wrap;
 		}
-		@media (min-width: 500px){
 		.hid-lg{display: none;}
+		@include for-phone-only{
+		.hid-lg{display: block;}
 		}
 		:last-child{
-			@media (max-width:700px){
+			@include for-phone-only{
 			display: none;
 			}
 		}
-		@media (max-width: 500px){
+		@include for-phone-only{
 		margin-bottom: 10px;
 		}
 		.hid-sm{
-		@media (max-width: 500px){display: none;}
+		@include for-phone-only{display: none;}
 		}
 	}
 	h4{width:30%;
-	@media (max-width:400px){
-		}
-		@media (min-width:400px){
+		@include for-phone-only{
 		&:nth-of-type(n+4){display: none;}
 		}
-		@media (max-width:700px){
+		@include for-phone-only{
 		width: 50%;
 		margin-bottom: 20px;
 		}
-		@media (max-width:540px){
+		@include for-phone-only{
 		width: 100%;
 		margin-bottom: 20px;
 		}
@@ -315,20 +330,28 @@ header{
 		@extend %bg;
 		box-sizing:border-box;
 		border-radius: 10px;
-		@media (max-width:700px){
-		width: 45%;
-		}
-		@media (max-width:540px){
-		width: 100%;
+		@include tablet{width: 45%;}
+		&:last-child {
+			@include tablet
+						{
+							width: 95%;
+							margin:50px 25px 50px 0;
+							height: 300px;
+						}
+					}
+		@include for-phone-only{
+		width: 90%;
 		margin: 0;
+		height: 310px;
 		}
+		h5{@include for-phone-only{margin-top: 0;}}
 	}
 	.news-wrap:not(:only-child){
 			display: none;
 		}
 	&__item:not(:last-child){
 		margin-right: 25px;
-		@media (max-width:540px){
+		@include for-phone-only{
 		margin:5px 0;
 		}
 	}
@@ -352,7 +375,7 @@ header{
 }
 .news__item{
 	padding-top: 8%;
-	@media (max-width:660px){
+	@include for-tablet-portait-only{
 		padding-top:0;
 		}
 }
@@ -363,10 +386,6 @@ header{
 	flex-flow:row wrap;
 	padding: 60px 0;
 	background-color: RGB(240, 240 , 240);
-	@media (max-width: 1200px){
-
-	}
-	
 	&__col{
 		width: 185px;
 		margin-left: 25px;
@@ -381,7 +400,7 @@ header{
 			&-d{order:-1}
 				margin: 0;
 		}
-		@media (max-width: 1250px) and (min-width:700px ){
+		@include tablet{
 			&-f{
 				display: flex;
 				flex-flow:row nowrap;
@@ -398,7 +417,7 @@ header{
 			a{
 				@extend .graytext;
 				line-height: 25px;
-				font-family: "GothamProRegular";
+				font-family: $GothamProRegular;
 				font-size: 13px;
 			}
 			&:hover{
@@ -413,6 +432,12 @@ header{
 	justify-content: space-between;
 	background-color: RGB(233, 233 , 233);
 	padding: 30px 60px;
+	@include for-phone-only{
+		flex-direction:column;
+	}
+	@include tablet{
+		padding: 30px 20px;
+	}
 }
 .social{
 	i{
@@ -421,6 +446,9 @@ header{
 		&:hover, &:visited{
 		color: $gray;
 		}
+	}
+	@include for-phone-only{
+		margin: 30px 0;
 	}
 	
 }

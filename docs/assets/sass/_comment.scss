@@ -1,3 +1,5 @@
+@import "base/mymixins";
+
 .comment-box{
 	margin-bottom: 20px;
 	a{
@@ -19,9 +21,6 @@
 	box-sizing:border-box;
 	&-hidden{
 		display: none;
-		@media (max-width: 940px){
-		display: block;
-		}
 	}
 	p{color: #005096;}
 	.title{
