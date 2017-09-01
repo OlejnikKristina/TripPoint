@@ -13,6 +13,15 @@
 		background-color: $bage;
 	}
 }
+header{width:90%;}
+#map{
+	width: 90%;
+	height: 450px;
+	border: 1px solid black;
+	position: relative;
+	left: 5%;
+	
+}
 .logo{
 	position: absolute;
 	left:10%; 
@@ -155,14 +164,6 @@ header{
 	@extend %space-around;
 	margin: 40px 7px 20px 7px;
 }
-
-.map{
-	background:url(../img/map.jpg) center center no-repeat;
-	 background-size: cover;
-	width: 90%;
-	height: 430px;
-	border: 1px solid black;
-}
 .rewiew{
 	h2{width: 100%;}
 	&__info{
@@ -294,16 +295,17 @@ header{
 		flex-wrap:wrap;
 		}
 		.hid-lg{display: none;}
-		@include for-phone-only{
-		.hid-lg{display: block;}
+		.hid-lg{
+			@include tablet{
+				display: block;
+				width: 100%;
+				margin-bottom: 30px;
+			}
 		}
 		:last-child{
 			@include for-phone-only{
 			display: none;
 			}
-		}
-		@include for-phone-only{
-		margin-bottom: 10px;
 		}
 		.hid-sm{
 		@include for-phone-only{display: none;}
@@ -323,7 +325,7 @@ header{
 		}
 	}
 	&__item{
-		width: 370px;
+		width: 28%;
 		max-width: 100%;
 		max-height: 100%;
 		height: 215px;
@@ -339,7 +341,7 @@ header{
 			@include tablet
 						{
 							width: 95%;
-							margin:50px 25px 50px 0;
+							margin:50px 25px 0px 0;
 							height: 300px;
 						}
 					}
@@ -370,6 +372,9 @@ header{
 	}
 	.row{
 		margin-bottom: 25px;
+	}
+	@include tablet{
+	margin-bottom: 0;
 	}
 
 }

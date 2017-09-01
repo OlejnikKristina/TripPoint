@@ -10,12 +10,15 @@
        <link rel="stylesheet" href="./assets/css/normalize.css">
        <link rel="stylesheet" href="./assets/css/media.css">
      <link rel="stylesheet" href="./assets/fonts/font-awesome/css/font-awesome.min.css">
+   	<script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIJFuuvSJP88m7B52OomqZKBCZ42r9EvU&callback=myFunction">
+   </script>
 </head>
 <body> 
   <div class="wrap">
     <section class="wrap-top">
-     <header>
-       <a href="#" class="logo" alt="TripsPoint"><img src="./assets/img/logo.png"></a>
+     <header itemscope itemtype="http://schema.org/Organization">
+       <a href="#" itemprop="name" class="logo" alt="TripsPoint"><img src="./assets/img/logo.png"></a>
         <nav class="menu">
           <ul>
            <li><i class="fa fa-user fa-lg" aria-hidden="true"> </i></li>
@@ -71,7 +74,26 @@
     </section>
     <section class="sec">
           <h2>what’s goin on right now</h2>
-          <img class="map"></figure>
+          <div id="map" aria-label="map"></div>
+    	    <script>
+    	    
+    			function initMap( lat,lng) {
+    			  var uluru = {lat, lng};
+    			  var map = new google.maps.Map(document.getElementById('map'), {
+    			    zoom: 18,
+    			    center: uluru
+    			  });
+    			  var marker = new google.maps.Marker({
+    			    position: uluru,
+    			    map: map
+    			  });
+    			}
+    			function myFunction (){
+    			navigator.geolocation.getCurrentPosition(function(position) {
+    			  initMap(position.coords.latitude, position.coords.longitude);
+    			});
+    			}
+    		</script>
           <p class="graytext centered">Pay just a small Booking Deposit  
           to confirm your booking. Pay just a small Booking Deposit  
           to confirm your booking just a small <br>Pay just a small Booking Deposit  
