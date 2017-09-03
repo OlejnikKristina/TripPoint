@@ -54,4 +54,5 @@ gulp.task('bs-reload', function () {
 gulp.task('default', ['html','sass', 'browser-sync'], function () {
   gulp.watch('./docs/assets/sass/**/*.scss', ['sass']);
   gulp.watch('./docs/templates/**/*.html', ['html']);
+
 });

@@ -31,14 +31,12 @@ header{width:90%;}
 		top:4%;
 	}
 }
+.clearboth{clear: both;}
 header{
 	padding: 2%;
-	@include tablet {padding:0;}
 }
 .menu{
-	width: 50%;
 	float: right;
-	padding-right: 20px;
 	@include for-phone-only {
 		display: none;
 	}	
@@ -49,6 +47,7 @@ header{
 		
 		li{ 
 			display: inline-block;
+			&:not(:last-child){margin-right: 20px;}
 			a{
 				@extend .graytext;
 			}
@@ -84,18 +83,26 @@ header{
 			}
 			color: $white;
 			line-height: 10px;
+			@include for-phone-only{
+				margin-left: 20px;
+				margin-right: 20px;
+			}
 			@media (max-width: 900px){line-height: 25px;}
 		}
 		form{
-			@include for-phone-only{
+			@include tablet{
 				display: flex;
-				flex-flow:column wrap;
-				align-items: center
+				flex-wrap: wrap;
 			}
 			button {
+					@media (max-width: 720px){
+						margin-top: 20px;
+					}
 					@include for-phone-only{
 					width: 90%;
 					height: 40px;
+					align-items: center;
+					flex-direction:column;
 				}
 			}
 		}
@@ -196,6 +203,9 @@ header{
 			padding: 2%;
 			.starts{
 				margin-bottom: 40%;
+				@include for-phone-only{
+					margin-bottom: 70%;
+				}
 			}
 			h3{
 				font-size: 18px;
@@ -213,6 +223,7 @@ header{
 			flex-direction:row;
 			align-items:flex-end;
 			height: 90%;
+			@include for-phone-only{height: 70%;}
 
 		}
 	}
@@ -273,6 +284,7 @@ header{
 		border-radius: 3px;
 		margin: 30px 30px 0 10px;
 		text-transform: uppercase;
+		@include for-phone-only{margin-top: 0;}
 		}
 .more{
 	width: 100%;
@@ -349,7 +361,13 @@ header{
 		width: 100%;
 		margin: 0;
 		}
-		h5{@include for-phone-only{margin-top: 0;display: block!important;}}
+		h5{
+			@include for-phone-only{
+			margin-top: 0;
+			display: block!important;
+			text-align: center;
+			}
+		}
 	}
 	&__item:not(:last-child){
 		margin-right: 25px;
@@ -404,6 +422,7 @@ header{
 			font-family: "GothamProBold";
 			@extend %uppercuse;
 			font-size: 16px;
+			text-align: left;
 		}
 		@media (max-width: 1250px){
 			&-c{order:-3;}
@@ -420,11 +439,13 @@ header{
 		}
 	}
 	&__menu{
+		padding-left:0;
+		margin-left:0;
 		li{
 			text-decoration: none;
 			list-style: none;
 			text-align: left;
-			margin-right:0;
+			
 			a{
 				@extend .graytext;
 				line-height: 25px;
@@ -440,6 +461,7 @@ header{
 }
 .more-foot{
 	display: flex;
+	padding: 0 5%;
 	justify-content: space-between;
 	background-color: RGB(233, 233 , 233);
 	padding: 30px 60px;
@@ -449,6 +471,14 @@ header{
 	}
 	@include tablet{
 		padding: 30px 10px;
+	}
+	a{
+		img:first-of-type{
+			margin-right: 10px;
+		}
+		@include for-phone-only{
+			order:1;
+		}
 	}
 }
 .social{

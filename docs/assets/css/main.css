@@ -252,16 +252,14 @@ header {
       left: 4%;
       top: 4%; } }
 
+.clearboth {
+  clear: both; }
+
 header {
   padding: 2%; }
-  @media (max-width: 940px) {
-    header {
-      padding: 0; } }
 
 .menu {
-  width: 50%;
-  float: right;
-  padding-right: 20px; }
+  float: right; }
   @media (max-width: 599px) {
     .menu {
       display: none; } }
@@ -270,6 +268,8 @@ header {
     align-items: baseline; }
     .menu ul li {
       display: inline-block; }
+      .menu ul li:not(:last-child) {
+        margin-right: 20px; }
       .menu ul li i {
         color: #7c7c7c; }
 
@@ -295,18 +295,26 @@ header {
       font-size: 19px;
       color: #fff;
       line-height: 10px; }
+      @media (max-width: 599px) {
+        .top__banner p {
+          margin-left: 20px;
+          margin-right: 20px; } }
       @media (max-width: 900px) {
         .top__banner p {
           line-height: 25px; } }
-    @media (max-width: 599px) {
+    @media (max-width: 940px) {
       .top__banner form {
         display: flex;
-        flex-flow: column wrap;
-        align-items: center; } }
+        flex-wrap: wrap; } }
+    @media (max-width: 720px) {
+      .top__banner form button {
+        margin-top: 20px; } }
     @media (max-width: 599px) {
       .top__banner form button {
         width: 90%;
-        height: 40px; } }
+        height: 40px;
+        align-items: center;
+        flex-direction: column; } }
     .top__banner input {
       width: 270px;
       margin: 0 7px;
@@ -396,6 +404,9 @@ header {
         margin-bottom: 20px; } }
     .rewiew__box--sm .starts {
       margin-bottom: 40%; }
+      @media (max-width: 599px) {
+        .rewiew__box--sm .starts {
+          margin-bottom: 70%; } }
     .rewiew__box--sm h3 {
       font-size: 18px; }
   .rewiew__box-a {
@@ -407,6 +418,9 @@ header {
   flex-direction: row;
   align-items: flex-end;
   height: 90%; }
+  @media (max-width: 599px) {
+    .rewiew__item--box-a {
+      height: 70%; } }
 
 @media (max-width: 940px) {
   .box-b {
@@ -464,6 +478,9 @@ header {
   border-radius: 3px;
   margin: 30px 30px 0 10px;
   text-transform: uppercase; }
+  @media (max-width: 599px) {
+    .shopnow {
+      margin-top: 0; } }
 
 .more {
   width: 100%;
@@ -538,7 +555,8 @@ header {
   @media (max-width: 599px) {
     .list__item h5 {
       margin-top: 0;
-      display: block !important; } }
+      display: block !important;
+      text-align: center; } }
 
 .list__item:not(:last-child) {
   margin-right: 25px; }
@@ -586,7 +604,8 @@ header {
     margin-left: 25px; }
     .foot__col h4 {
       font-family: "GothamProBold";
-      font-size: 16px; }
+      font-size: 16px;
+      text-align: left; }
     @media (max-width: 1250px) {
       .foot__col {
         margin: 0; }
@@ -601,21 +620,24 @@ header {
         display: flex;
         flex-flow: row nowrap;
         width: 500px; } }
-  .foot__menu li {
-    text-decoration: none;
-    list-style: none;
-    text-align: left;
-    margin-right: 0; }
-    .foot__menu li a {
-      line-height: 25px;
-      font-family: "GothamProRegular", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-      font-size: 13px; }
-    .foot__menu li:hover {
-      text-decoration: underline;
-      transition: 1s; }
+  .foot__menu {
+    padding-left: 0;
+    margin-left: 0; }
+    .foot__menu li {
+      text-decoration: none;
+      list-style: none;
+      text-align: left; }
+      .foot__menu li a {
+        line-height: 25px;
+        font-family: "GothamProRegular", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+        font-size: 13px; }
+      .foot__menu li:hover {
+        text-decoration: underline;
+        transition: 1s; }
 
 .more-foot {
   display: flex;
+  padding: 0 5%;
   justify-content: space-between;
   background-color: RGB(233, 233, 233);
   padding: 30px 60px; }
@@ -626,6 +648,11 @@ header {
   @media (max-width: 940px) {
     .more-foot {
       padding: 30px 10px; } }
+  .more-foot a img:first-of-type {
+    margin-right: 10px; }
+  @media (max-width: 599px) {
+    .more-foot a {
+      order: 1; } }
 
 .social i {
   color: #c4c4c4;

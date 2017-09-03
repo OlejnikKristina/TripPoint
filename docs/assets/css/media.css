@@ -1,10 +1,4 @@
-@media (max-width: 1240px) {
-  .menu {
-    width: 60%; } }
-
 @media (max-width: 940px) {
-  .menu {
-    width: 70%; }
   .hidden-sm {
     display: none; }
   .hidden-lg {
