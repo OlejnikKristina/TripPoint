@@ -77,24 +77,33 @@
           <h2>what’s goin on right now</h2>
           <div id="map" aria-label="map"></div>
     	   <script>
-    	    /*
-    			function initMap( lat,lng) {
-    			  var uluru = {lat, lng};
-    			  var map = new google.maps.Map(document.getElementById('map'), {
-    			    zoom: 18,
-    			    center: uluru
-    			  });
-    			  var marker = new google.maps.Marker({
-    			    position: uluru,
-    			    map: map
-    			  });
-    			}
-    			function myFunction (){
+    	    	function myFunction(lat,lng) {
+    	    	var n = 4;
+    	    	if (lat===undefined){
+    	    		var lat=50.481288;
+    	    	}else{
+    	    		n = 18;
+    	    	}
+    	    	if (lng===undefined){
+    	    		var lng=30.450266;
+    	    	}
+    	        var uluru = {lat, lng};
+    	        var map = new google.maps.Map(document.getElementById('map'), {
+    	          zoom: n,
+    	          center: uluru
+    	        });
+    	        var marker = new google.maps.Marker({
+    	          position: uluru,
+    	          map: map
+    	        });
+    	      }
+    			function FindMe (){
     			navigator.geolocation.getCurrentPosition(function(position) {
-    			  initMap(position.coords.latitude, position.coords.longitude);
+    			  myFunction(position.coords.latitude, position.coords.longitude);
     			});
-    			}*/
+    			}
     		</script>
+    		<button id="Finder" onclick="FindMe();" method="submmit" class="button">Did you lost?</button>
           <p class="graytext centered">Pay just a small Booking Deposit  
           to confirm your booking. Pay just a small Booking Deposit  
           to confirm your booking just a small <br>Pay just a small Booking Deposit  
@@ -538,6 +547,9 @@
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="/assets/scripts/libs/jquery-3.2.1.min.js"><\/script>')</script>
+   <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIJFuuvSJP88m7B52OomqZKBCZ42r9EvU&callback=initMap">
+      </script>
   
   <script src="./assets/scripts/common.js"></script>
 </body>

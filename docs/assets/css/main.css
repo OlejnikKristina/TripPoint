@@ -241,7 +241,11 @@ header {
   height: 450px;
   border: 1px solid black;
   position: relative;
-  left: 5%; }
+  left: 5%;
+  margin-bottom: 15px; }
+  @media (max-width: 599px) {
+    #map {
+      height: 400px; } }
 
 .logo {
   position: absolute;
@@ -250,13 +254,16 @@ header {
   @media (max-width: 599px) {
     .logo {
       left: 4%;
-      top: 4%; } }
+      top: 1%; } }
 
 .clearboth {
   clear: both; }
 
 header {
   padding: 2%; }
+  @media (max-width: 599px) {
+    header {
+      padding: 0; } }
 
 .menu {
   float: right; }
@@ -277,9 +284,6 @@ header {
   height: 600px;
   max-height: 100%;
   position: relative; }
-  @media (max-width: 599px) {
-    .top {
-      height: 700px; } }
   .top__banner {
     background-color: rgba(0, 89, 145, 0.4);
     border: 1px solid #fff;
@@ -290,7 +294,7 @@ header {
     text-align: center; }
     @media (max-width: 599px) {
       .top__banner {
-        margin: 110px 0; } }
+        margin: 70px 0 0 0; } }
     .top__banner p {
       font-size: 19px;
       color: #fff;
@@ -305,7 +309,8 @@ header {
     @media (max-width: 940px) {
       .top__banner form {
         display: flex;
-        flex-wrap: wrap; } }
+        flex-wrap: wrap;
+        margin-top: 0; } }
     @media (max-width: 720px) {
       .top__banner form button {
         margin-top: 20px; } }

@@ -13,13 +13,19 @@
 		background-color: $bage;
 	}
 }
-header{width:90%;}
+header{
+	width:90%;
+}
 #map{
 	width: 90%;
 	height: 450px;
 	border: 1px solid black;
 	position: relative;
 	left: 5%;
+	margin-bottom: 15px;
+	@include for-phone-only {
+		height: 400px;
+	}
 	
 }
 .logo{
@@ -28,12 +34,15 @@ header{width:90%;}
 	z-index: 3;
 	@include for-phone-only {
 		left:4%;
-		top:4%;
+		top:1%;
 	}
 }
 .clearboth{clear: both;}
 header{
 	padding: 2%;
+	@include for-phone-only{
+	padding: 0;
+	}
 }
 .menu{
 	float: right;
@@ -61,9 +70,6 @@ header{
 .top{
 	height: 600px;
 	max-height: 100%;
-	@include for-phone-only {
-		height: 700px;
-	}
 	position: relative;
 	@extend %flex-center;
 	&__banner{
@@ -75,7 +81,7 @@ header{
 		text-shadow: 1px 1px 1px black;
 		text-align: center;
 		@include for-phone-only{
-		margin: 110px 0;
+		margin: 70px 0 0 0;
 		}	
 		p{
 			font:{
@@ -93,6 +99,7 @@ header{
 			@include tablet{
 				display: flex;
 				flex-wrap: wrap;
+				margin-top: 0;
 			}
 			button {
 					@media (max-width: 720px){
